@@ -49,6 +49,14 @@ export default class {
     })
   }
 
+  async fetchClients() {
+    const url = `${ROOT_URL}api/v1/customers/`
+
+    return fetch(url, {
+      headers: this.getPrivateHeaders(),
+    })
+  }
+
   setToken(token) {
     localStorage.setItem("BUSINESS_TOKEN", token)
   }
