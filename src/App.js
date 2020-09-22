@@ -1,15 +1,20 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-// * Components
+// * Pages
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import StartPage from './pages/StartPage';
+import AdminPage from './pages/AdminPage';
 
 function App() {
   return (
     <div>
       <Switch>
+        <Route path="/home">
+          <AdminPage />
+        </Route>
+
         <Route path="/login">
           <LoginPage />
         </Route>
