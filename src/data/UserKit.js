@@ -35,10 +35,38 @@ export default class {
     })
   }
 
+  async login(email, password) {
+    const url = `${ROOT_URL}api-token-auth/`
+    const payload = {
+      email,
+      password
+    }
+
+    return fetch(url, {
+      method: "POST",
+      headers: this.getPublicHeaders(),
+      body: JSON.stringify(payload)
+    })
+  }
+
+  setToken(token) {
+    localStorage.setItem("BUSINESS_TOKEN", token)
+  }
+
+  getToken() {
+    return localStorage.getItem("BUSINESS_TOKEN")
+  }
+
   getPublicHeaders() {
     return {
       "Content-Type": "application/json"
     }
   }
 
+  getPrivateHeaders() {
+    return {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${this.getToken()}`
+    }
+  }
 }
