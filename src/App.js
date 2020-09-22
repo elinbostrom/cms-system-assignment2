@@ -6,11 +6,16 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import StartPage from './pages/StartPage';
 import AdminPage from './pages/AdminPage';
+import CreateClientPage from './pages/CreateClientPage';
 
 function App() {
   return (
     <div>
       <Switch>
+        <Route path="/create-client">
+          <CreateClientPage />
+        </Route>
+
         <Route path="/home">
           <AdminPage />
         </Route>
