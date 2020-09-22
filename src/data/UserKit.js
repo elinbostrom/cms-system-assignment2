@@ -1,5 +1,6 @@
 
 const ROOT_URL = "https://frebi.willandskill.eu/"
+const AUTH_URL = `${ROOT_URL}auth/`
 
 export default class {
 
@@ -14,6 +15,19 @@ export default class {
       organisationKind
     }
 
+    return fetch(url, {
+      method: "POST",
+      headers: this.getPublicHeaders(),
+      body: JSON.stringify(payload)
+    })
+  }
+
+  async activateUser(uid, code) {
+    const url = `${AUTH_URL}users/activate/`
+    const payload = {
+      uid: uid,
+      token: code
+    }
     return fetch(url, {
       method: "POST",
       headers: this.getPublicHeaders(),
