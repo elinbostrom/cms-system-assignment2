@@ -20,11 +20,11 @@ Alla punkter (förutom de som börjar på "VG") nedan ska utföras i projektet f
 betyget Godkänt. För VG ska minst 2 utav VG-punkterna utföras.
 
 Krav:
-React
-JSX
-React Router Dom
-useState
-useEffect
+React - CHECK
+JSX - CHECK
+React Router Dom - CHECK
+useState - CHECK
+useEffect - CHECK
 VG: useContext (spara kundlistan och inloggade användarens information i
 Context)
 Styled Components
@@ -44,7 +44,7 @@ password: js-fend-19
 Navigera till: https://frebi.willandskill.eu/swagger/
 
 
-# Skapa en ny användare
+# Skapa en ny användare - CHECK
 auth_user_create
 /auth/users/
 När användaren har skapats så skickas ett mail till användarens email adress.
@@ -58,7 +58,7 @@ Alla dessa mail hamnar i min inkorg. Jag är osäker på ifall er nackademin mai
 har denna funktion.
 
 
-# Aktivera användaren
+# Aktivera användaren - CHECK
 I mailet som ni får från systemet så finns det en länk som ser ut som nedan
 http://localhost:3000/login?uid=NzI&token=5jz-8e37ac1f5dccf7b30a0f
 Denna länk innehåller en uid och en token som query parametrar.
@@ -66,7 +66,7 @@ Använd useHistory för att hitta uid och token. Använd även URLSearchParams
 för att lättare hantera url.
 
 
-# Logga in användaren
+# Logga in användaren - CHECK
 Inlämingsuppgift 2 3
 När användaren har aktiverat sitt konto så navigerar vi vidare till /login (utan
 uid och token parameter). Här visar vi upp input fält för email och användare
@@ -76,10 +76,10 @@ token
 
 
 # Hemskärmen
-När användaren har logga in navigerar vi vidare till /home
+När användaren har loggat in navigerar vi vidare till /home - CHECK
 Lista alla kunder som användaren har kopplat till sitt konto ( GET
-/api/v1/customers/)
-Ge användaren möjlighet att lägga till en ny kund ( POST /api/v1/customers/ )
+/api/v1/customers/) - CHECK
+Ge användaren möjlighet att lägga till en ny kund ( POST /api/v1/customers/ ) - CHECK
 
 Användaren ska kunna ange följande värden för att skapa en kund:
 name (kundens namn)
@@ -101,7 +101,7 @@ back-end
 Visa den inloggade användarens email, förnamn och efternamn.
 
 
-# Detaljvy för en specifik kund
+# Detaljvy för en specifik kund 
 Inlämingsuppgift 2 4
 Visa följande information på Detaljvy för en specifik kund
 name,
@@ -115,7 +115,7 @@ phoneNumber
 
 VG: Lägg till en knapp så att användaren kan ta bort en kund HTTP
 Method Delete på /api/v1/customers/{id}/ ). Användaren ska därefter
-navigera tillbaka till "Hemskärmen"
+navigera tillbaka till "Hemskärmen" - CHECK
 
 VG: Ge användaren möjlighet att ändra kundens information PUT/PATCH
 
