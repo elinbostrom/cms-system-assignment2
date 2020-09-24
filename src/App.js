@@ -1,38 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // * Pages
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import StartPage from './pages/StartPage';
-import AdminPage from './pages/AdminPage';
-import CreateClientPage from './pages/CreateClientPage';
+import HomePage from './pages/HomePage';
+import CreateCustomerPage from './pages/CreateCustomerPage';
+import LayoutSimple from './components/LayoutSimple';
+import { UserContext } from './context/UserContext';
+import { CustomerContext } from './context/CustomerContext';
+import CustomerDetailPage from './pages/CustomerDetailPage';
 
 function App() {
+  const [fullName, setFullName] = useState("")
+  const [customerInfo, setCustomerInfo] = useState({})
+  const [customerList, setCustomerList] = useState([])
+
   return (
     <div>
-      <Switch>
-        <Route path="/create-client">
-          <CreateClientPage />
-        </Route>
+      <LayoutSimple>
+        <UserContext.Provider value={{ fullName, setFullName }}>
+          <CustomerContext.Provider value={{ customerInfo, setCustomerInfo, customerList, setCustomerList }}>
+            <Switch>
+              <Route path="/customers/:id" render={props => (
+                <CustomerDetailPage {...props} />
+              )}>
 
-        <Route path="/home">
-          <AdminPage />
-        </Route>
+              </Route>
 
-        <Route path="/login">
-          <LoginPage />
-        </Route>
+              <Route path="/create-customer">
+                <CreateCustomerPage />
+              </Route>
 
-        <Route path="/register">
-          <SignUpPage />
-        </Route>
+              <Route path="/home">
+                <HomePage />
+              </Route>
 
-        <Route path="/">
-          <StartPage />
-        </Route>
-      </Switch>
-    </div>
+              <Route path="/login">
+                <LoginPage />
+              </Route>
+
+              <Route path="/register">
+                <SignUpPage />
+              </Route>
+
+              <Route path="/">
+                <StartPage />
+              </Route>
+            </Switch>
+          </CustomerContext.Provider>
+        </UserContext.Provider>
+      </LayoutSimple>
+    </div >
   );
 }
 
