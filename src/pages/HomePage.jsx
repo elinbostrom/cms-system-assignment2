@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { CustomerContext } from '../context/CustomerContext'
 import UserKit from '../data/UserKit'
 
 export default function HomePage() {
   const userKit = new UserKit()
-  const [customerList, setCustomerList] = useState([])
+  const { customerList, setCustomerList } = useContext(CustomerContext)
   const history = useHistory()
 
 
