@@ -68,10 +68,37 @@ export default class {
     })
   }
 
+  async editCustomer(payload, customerId) {
+    const url = `${ROOT_URL}/api/v1/clients/${customerId}/`
+
+    return fetch(url, {
+      method: "PATCH",
+      headers: this.getPrivateHeaders(),
+      body: JSON.stringify(payload)
+    })
+  }
+
   async activeUser() {
     const url = `${ROOT_URL}api/v1/me`
 
     return fetch(url, {
+      headers: this.getPrivateHeaders()
+    })
+  }
+
+  async customerDetail(customerId) {
+    const url = `${ROOT_URL}/api/v1/customers/${customerId}/`
+
+    return fetch(url, {
+      headers: this.getPrivateHeaders()
+    })
+  }
+
+  async deleteCustomer(customerId) {
+    const url = `${ROOT_URL}/api/v1/customers/${customerId}/`
+
+    return fetch(url, {
+      method: "DELETE",
       headers: this.getPrivateHeaders()
     })
   }
