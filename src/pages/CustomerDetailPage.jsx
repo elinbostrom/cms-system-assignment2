@@ -20,11 +20,9 @@ const schema = yup.object().shape({
 })
 
 export default function CustomerDetailPage(props) {
-  const { setCustomerList } = useContext(CustomerContext)
+  const { customerDetails, setCustomerDetails } = useContext(CustomerContext)
   const userKit = new UserKit()
   const customerId = props.match.params.id;
-  console.log("Customer id: " + customerId);
-  const [customerDetails, setCustomerDetails] = useState({})
   const history = useHistory()
   const [editMode, setEditMode] = useState(false)
 
@@ -37,7 +35,7 @@ export default function CustomerDetailPage(props) {
   }
 
   useEffect(() => {
-    handleCustomerDetails()
+    handleCustomerDetails() // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleDeleteCustomer = () => {
@@ -52,11 +50,9 @@ export default function CustomerDetailPage(props) {
 
   const onSubmit = (data) => {
     userKit.editCustomer(data, customerId)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      })
       .then(userKit.customerDetail(customerId))
+      .then(handleCustomerDetails())
+      .then(setEditMode(false))
   }
 
   return (

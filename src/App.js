@@ -13,15 +13,33 @@ import { CustomerContext } from './context/CustomerContext';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 
 function App() {
-  const [fullName, setFullName] = useState("")
+  const [activeUser, setActiveUser] = useState("Hej")
   const [customerInfo, setCustomerInfo] = useState({})
   const [customerList, setCustomerList] = useState([])
+  const [customerDetails, setCustomerDetails] = useState({})
+
+  // setActiveUser('Hejdå')
 
   return (
     <div>
-      <LayoutSimple>
-        <UserContext.Provider value={{ fullName, setFullName }}>
-          <CustomerContext.Provider value={{ customerInfo, setCustomerInfo, customerList, setCustomerList }}>
+      <CustomerContext.Provider
+        value={{
+          customerInfo,
+          setCustomerInfo,
+          customerList,
+          setCustomerList,
+          customerDetails,
+          setCustomerDetails
+        }}>
+
+        <UserContext.Provider
+          value={{
+            activeUser,
+            setActiveUser
+          }}>
+
+          <LayoutSimple>
+
             <Switch>
               <Route path="/customers/:id" render={props => (
                 <CustomerDetailPage {...props} />
@@ -49,9 +67,9 @@ function App() {
                 <StartPage />
               </Route>
             </Switch>
-          </CustomerContext.Provider>
+          </LayoutSimple>
         </UserContext.Provider>
-      </LayoutSimple>
+      </CustomerContext.Provider>
     </div >
   );
 }

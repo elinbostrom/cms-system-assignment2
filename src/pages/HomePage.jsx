@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { CustomerContext } from '../context/CustomerContext'
+import { UserContext } from '../context/UserContext'
 import UserKit from '../data/UserKit'
 
 export default function HomePage() {
   const userKit = new UserKit()
   const { customerList, setCustomerList } = useContext(CustomerContext)
+  const { activeUser } = useContext(UserContext)
   const history = useHistory()
 
 
@@ -24,7 +26,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Home page</h1>
+      <h1>Welcome {activeUser.firstName}</h1>
       <button onClick={() => { history.push("/create-customer") }}>Create new customer</button>
       <table>
         <thead>

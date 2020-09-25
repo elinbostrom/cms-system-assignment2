@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import UserKit from '../data/UserKit'
+import { UserContext } from '../context/UserContext'
 
 export default function LayoutSimple({ children }) {
   const userKit = new UserKit()
-  const token = userKit.getToken
-  const [activeUser, setActiveUser] = useState("")
+  const token = userKit.getToken()
+  let { activeUser, setActiveUser } = useContext(UserContext)
 
   const handleActiveUser = () => {
-    userKit.activeUser()
+    userKit.getActiveUser()
       .then(res => res.json())
-      .then(data => {
-        setActiveUser(data)
-      })
+      .then(data => setActiveUser(data))
   }
 
   useEffect(() => {
-    handleActiveUser()
+    handleActiveUser() // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div>
       {token && <nav>
-        <a href="#">Logo</a>
+        <p>Logo</p>
         <ul>
           <li>Customers</li>
           <li>Sign out</li>
@@ -33,7 +32,7 @@ export default function LayoutSimple({ children }) {
         </ul>
       </nav>}
       {!token && <nav>
-        <a href="#">Logo</a>
+        <p>Logo</p>
         <ul>
           <li>Sign up</li>
           <li>Sign in</li>
