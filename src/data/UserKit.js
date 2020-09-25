@@ -68,17 +68,17 @@ export default class {
     })
   }
 
-  async editCustomer(payload, customerId) {
-    const url = `${ROOT_URL}/api/v1/clients/${customerId}/`
+  async editCustomer(data, customerId) {
+    const url = `${ROOT_URL}api/v1/customers/${customerId}/`
 
     return fetch(url, {
       method: "PATCH",
       headers: this.getPrivateHeaders(),
-      body: JSON.stringify(payload)
+      body: JSON.stringify(data)
     })
   }
 
-  async activeUser() {
+  async getActiveUser() {
     const url = `${ROOT_URL}api/v1/me`
 
     return fetch(url, {
@@ -87,7 +87,7 @@ export default class {
   }
 
   async customerDetail(customerId) {
-    const url = `${ROOT_URL}/api/v1/customers/${customerId}/`
+    const url = `${ROOT_URL}api/v1/customers/${customerId}/`
 
     return fetch(url, {
       headers: this.getPrivateHeaders()

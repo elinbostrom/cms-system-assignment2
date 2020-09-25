@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
@@ -15,7 +15,7 @@ const schema = yup.object().shape({
   paymentTerm: yup.number().positive().integer().required(),
   website: yup.string().url().required(),
   email: yup.string().email().required(),
-  phoneNumber: yup.number().positive().integer().required(),
+  phoneNumber: yup.number().integer().required(),
 })
 
 export default function CreateCustomerPage() {
