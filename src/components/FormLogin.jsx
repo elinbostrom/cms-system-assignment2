@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import UserKit from '../data/UserKit'
 
-export default function LoginForm() {
+export default function FormLogin() {
   const userKit = new UserKit()
   const history = useHistory()
   const [loginEmail, setLoginEmail] = useState("")

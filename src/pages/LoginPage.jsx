@@ -4,7 +4,7 @@ import UserKit from '../data/UserKit'
 
 // * Components
 import ActivateUser from "../components/ActivateUser"
-import LoginForm from '../components/LoginForm'
+import FormLogin from '../components/FormLogin'
 
 export default function LoginPage() {
   const userKit = new UserKit()
@@ -29,7 +29,7 @@ export default function LoginPage() {
       {uid && code ? (
         <ActivateUser handleActivateUser={handleActivateUser} />
       ) : (
-          <LoginForm />
+          <FormLogin />
         )
       }
     </div>
