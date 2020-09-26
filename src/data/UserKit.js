@@ -5,15 +5,15 @@ const CUSTOMER_URL = `${ROOT_URL}api/v1/customers`
 
 export default class {
 
-  async register(firstName, lastName, email, password, organisationName, organisationKind) {
+  async register(data) {
     const url = `${ROOT_URL}auth/users/`
     const payload = {
-      firstName,
-      lastName,
-      email,
-      password,
-      organisationName,
-      organisationKind
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      organisationName: data.organisationName,
+      organisationKind: data.organisationKind
     }
 
     return fetch(url, {
@@ -109,6 +109,10 @@ export default class {
 
   getToken() {
     return localStorage.getItem("BUSINESS_TOKEN")
+  }
+
+  deleteToken() {
+    localStorage.removeItem("BUSINESS_TOKEN")
   }
 
   getPublicHeaders() {
