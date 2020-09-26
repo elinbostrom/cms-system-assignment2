@@ -16,6 +16,7 @@ export default function ListCustomers() {
   }
 
   useEffect(() => {
+    userKit.fetchCustomers()
     fetchCustomerList() // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
