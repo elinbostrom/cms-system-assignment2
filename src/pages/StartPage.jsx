@@ -3,20 +3,25 @@ import styled from 'styled-components'
 
 // Media 
 import HeroPicture from '../media/background-startpage.jpg'
+import CustomerListImage from '../media/customer-list.png'
+import EditCustomerImage from '../media/edit-customer.png'
+import LogoWhite from '../media/logo-white.png'
 
 // Components
 import ButtonRegister from '../components/ButtonRegister'
 import ButtonLogin from '../components/ButtonLogin'
 import ContainerInformation from '../components/ContainerInformation'
+import ImageWrapper from '../styles/ImageWrapper'
 
 export default function StartPage() {
 
   return (
     <div>
       <Hero>
-
         <ContentWrapper>
-          <HeroTitle>Startpage</HeroTitle>
+          <LogoWrapper width="300px">
+            <img src={LogoWhite} alt="White logotype" />
+          </LogoWrapper >
           <ButtonRegister
             signUpText="Create account"
             width="100%"
@@ -28,15 +33,15 @@ export default function StartPage() {
         <ContainerInformation
           title="Get a overview of your customers"
           informationText="Get a clear overview of all your customers. You can edit and manage them i our magical CRM system."
-          sourceUrl="/"
+          sourceUrl={CustomerListImage}
           altText="Overview of system" />
         <ContainerInformation
           title="Edit and manage customers"
           informationText="See specific details about a customer. Edit information and delete from system if neccesary."
-          sourceUrl="/"
+          sourceUrl={EditCustomerImage}
           altText="Overview of specific detailpage" />
       </Hero>
-    </div>
+    </div >
   )
 }
 
@@ -50,7 +55,7 @@ width: 100vw;
 min-height: 100vh;
 padding: 2em;
 display: grid;
-grid-template: 1fr 1fr 1fr / 1fr;
+grid-template: 0.7fr 1fr 1fr / 1fr;
 justify-content: center;
 align-items: center;
 
@@ -64,15 +69,12 @@ display: grid;
 grid-template: 1fr 0.5fr / 1fr 1fr;
 gap: 1em;
 justify-content: center;
-max-width: 500px;
+max-width: 600px;
 margin: auto;
 width: 100%;
 `
 
-const HeroTitle = styled.h1`
-align-self: flex-end;
-color: ${props => props.theme.whisper};
-text-shadow: 1px 1px 2px black;
+const LogoWrapper = styled(ImageWrapper)`
+margin: auto;
 grid-column: span 2;
-text-align: center;
 `
