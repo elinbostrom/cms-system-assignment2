@@ -1,10 +1,12 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
-import UserKit from '../data/UserKit'
 import { yupResolver } from '@hookform/resolvers'
 import * as yup from 'yup'
+import UserKit from '../data/UserKit'
 import styled from 'styled-components'
+
+// Styles
 import Form from '../styles/Form'
 import Button from '../styles/Button'
 import InputFields from '../styles/InputFields'
@@ -51,7 +53,7 @@ export default function FormCreateCustomer() {
       <LabelWrapper>
         Organisation Number
           <InputFields height="30px" type="text" name="organisationNr" ref={register} />
-        {errors.organisationNr && <ErrorMessage>This is required</ErrorMessage>}
+        {errors.organisationNr && <ErrorMessage>This is required, only numbers.</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
@@ -76,13 +78,13 @@ export default function FormCreateCustomer() {
       <LabelWrapper>
         Website
           <InputFields height="30px" type="text" name="website" ref={register} />
-        {errors.website && <ErrorMessage>This is required</ErrorMessage>}
+        {errors.website && <ErrorMessage>This is required (ex. https://website.se)</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
         Email
           <InputFields height="30px" type="text" name="email" ref={register} />
-        {errors.email && <ErrorMessage>This is required</ErrorMessage>}
+        {errors.email && <ErrorMessage>This is required (ex. email@outlook.se)</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>

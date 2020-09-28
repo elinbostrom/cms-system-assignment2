@@ -3,6 +3,8 @@ import UserKit from '../data/UserKit'
 import { CustomerContext } from '../context/CustomerContext'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+// Styles
 import Button from '../styles/Button'
 
 export default function ListCustomers() {

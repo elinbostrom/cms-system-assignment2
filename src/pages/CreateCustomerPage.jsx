@@ -1,5 +1,9 @@
 import React from 'react'
+
+// Components
 import FormCreateCustomer from '../components/FormCreateCustomer'
+
+// Styles
 import PlaceMainContent from '../styles/PlaceMainContent'
 import Headline from '../styles/Headline'
 

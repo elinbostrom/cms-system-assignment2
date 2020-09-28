@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+// Styles
 import NavBar from '../styles/NavBar'
-import LogoWhite from '../media/logo-white.png'
 import ImageWrapper from '../styles/ImageWrapper'
 
+// Media
+import LogoWhite from '../media/logo-white.png'
 
 export default function NavBarSignedOut() {
 

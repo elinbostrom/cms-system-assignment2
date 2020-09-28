@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers'
+import { CustomerContext } from '../context/CustomerContext'
 import * as yup from "yup"
 import styled from 'styled-components'
 import UserKit from '../data/UserKit'
-import { CustomerContext } from '../context/CustomerContext'
+
+// Styles
 import Form from '../styles/Form'
 import Button from '../styles/Button'
 import InputFields from '../styles/InputFields'
@@ -33,8 +35,8 @@ export default function FormEditCustomer({ setEditMode, handleCustomerDetails, c
   const onSubmit = (data) => {
     userKit.editCustomer(data, customerId)
       .then(userKit.customerDetail(customerId))
-      .then(setEditMode(false))
       .then(handleCustomerDetails())
+      .then(setEditMode(false))
   }
 
   return (

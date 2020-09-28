@@ -1,13 +1,16 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import ListCustomers from '../components/ListCustomers'
 import { UserContext } from '../context/UserContext'
+import styled from 'styled-components'
+
+// Components
+import ListCustomers from '../components/ListCustomers'
+
+// Styles
 import PlaceMainContent from '../styles/PlaceMainContent'
 import Container from '../styles/Container'
 import Button from '../styles/Button'
-import styled from 'styled-components'
 import Headline from '../styles/Headline'
-import UserKit from '../data/UserKit'
 
 export default function HomePage() {
   const { activeUser } = useContext(UserContext)

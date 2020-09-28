@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import UserKit from '../data/UserKit'
 
-// * Components
+// Components
 import ActivateUser from "../components/ActivateUser"
 import FormLogin from '../components/FormLogin'
 

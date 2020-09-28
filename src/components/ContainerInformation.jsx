@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+// Styles
 import Container from '../styles/Container'
 import ImageWrapper from '../styles/ImageWrapper'
 

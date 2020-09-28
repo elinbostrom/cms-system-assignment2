@@ -3,10 +3,14 @@ import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { UserContext } from '../context/UserContext'
 import UserKit from '../data/UserKit'
+
+// Styles
 import NavBar from '../styles/NavBar'
-import LogoBlack from '../media/logo-black.png'
 import ImageWrapper from '../styles/ImageWrapper'
 import Button from '../styles/Button'
+
+// Media
+import LogoBlack from '../media/logo-black.png'
 
 export default function NavBarSignedIn() {
   let { activeUser, setActiveUser } = useContext(UserContext)

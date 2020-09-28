@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import UserKit from '../data/UserKit'
 import { yupResolver } from '@hookform/resolvers'
 import * as yup from 'yup'
+
+// Styles
 import PlaceMainContent from '../styles/PlaceMainContent'
 import InputFields from '../styles/InputFields'
 import Form from '../styles/Form'

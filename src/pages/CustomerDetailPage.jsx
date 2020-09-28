@@ -1,8 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
 import UserKit from '../data/UserKit'
 import { CustomerContext } from '../context/CustomerContext';
+
+// Components
 import FormEditCustomer from '../components/FormEditCustomer';
 import CustomerDetailInformation from '../components/CustomerDetailInformation';
+
+// Styles
 import PlaceMainContent from '../styles/PlaceMainContent';
 import Headline from '../styles/Headline';
 

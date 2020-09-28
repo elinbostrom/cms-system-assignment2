@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
 import { CustomerContext } from '../context/CustomerContext'
+import styled from 'styled-components'
 import UserKit from '../data/UserKit'
+
+// Styles
 import Button from '../styles/Button'
 import Container from '../styles/Container'
 

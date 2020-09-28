@@ -1,4 +1,6 @@
 import React from 'react'
+
+// Styles
 import Button from '../styles/Button'
 import Headline from '../styles/Headline'
 import PlaceMainContent from '../styles/PlaceMainContent'
