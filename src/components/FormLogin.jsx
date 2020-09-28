@@ -1,36 +1,60 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import UserKit from '../data/UserKit'
+import { yupResolver } from '@hookform/resolvers'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  email: yup.string().email().required('Please fill in email'),
+  password: yup.string().min(8).required('Please fill in password'),
+})
 
 export default function FormLogin() {
   const userKit = new UserKit()
   const history = useHistory()
-  const [loginEmail, setLoginEmail] = useState("")
-  const [loginPassword, setLoginPassword] = useState("")
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema)
+  })
 
-  const handleLogin = () => {
-    userKit.login(
-      loginEmail, loginPassword
-    ).then(res => res.json())
-      .then(data => {
+
+  const onSubmit = (data) => {
+    userKit.login(data)
+      .then(async res => {
+        const data = await res.json()
+
+        if (!res.ok) {
+          const error = (data && data.message) || res.status
+          return Promise.reject(error)
+        }
+
         userKit.setToken(data.token)
         history.push("/home")
+
+      })
+      .catch(error => {
+        alert('Wrong email or password, try again or create new account.', error)
+        window.location.reload()
       })
   }
 
   return (
     <div>
       <h1>Login</h1>
-      <LabelWrapper>
-        Email
-        <input type="email" value={loginEmail} onChange={(e) => { setLoginEmail(e.currentTarget.value) }} />
-      </LabelWrapper>
-      <LabelWrapper>
-        Password
-        <input type="password" value={loginPassword} onChange={(e) => { setLoginPassword(e.currentTarget.value) }} />
-      </LabelWrapper>
-      <button onClick={handleLogin}>Login</button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <LabelWrapper>
+          Email
+        <input type="email" name="email" ref={register} />
+          <p>{errors.email?.message}</p>
+        </LabelWrapper>
+        <LabelWrapper>
+          Password
+        <input type="password" name="password" ref={register} />
+          <p>{errors.password?.message}</p>
+        </LabelWrapper>
+        <button type="submit">Login</button>
+      </form>
     </div>
   )
 }
