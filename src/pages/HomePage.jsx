@@ -12,11 +12,6 @@ import UserKit from '../data/UserKit'
 export default function HomePage() {
   const { activeUser } = useContext(UserContext)
   const history = useHistory()
-  const userKit = new UserKit()
-
-  useEffect(() => {
-    userKit.fetchCustomers() // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <PlaceMainContent
