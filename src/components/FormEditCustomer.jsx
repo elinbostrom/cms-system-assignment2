@@ -5,6 +5,10 @@ import * as yup from "yup"
 import styled from 'styled-components'
 import UserKit from '../data/UserKit'
 import { CustomerContext } from '../context/CustomerContext'
+import Form from '../styles/Form'
+import Button from '../styles/Button'
+import InputFields from '../styles/InputFields'
+import ErrorMessage from '../styles/ErrorMessage'
 
 
 const schema = yup.object().shape({
@@ -15,7 +19,7 @@ const schema = yup.object().shape({
   paymentTerm: yup.number().positive().integer().required(),
   website: yup.string().url().required(),
   email: yup.string().email().required(),
-  phoneNumber: yup.number().positive().integer().required(),
+  phoneNumber: yup.number().required(),
 })
 
 export default function FormEditCustomer({ setEditMode, handleCustomerDetails, customerId }) {
@@ -29,68 +33,105 @@ export default function FormEditCustomer({ setEditMode, handleCustomerDetails, c
   const onSubmit = (data) => {
     userKit.editCustomer(data, customerId)
       .then(userKit.customerDetail(customerId))
-      .then(handleCustomerDetails())
       .then(setEditMode(false))
+      .then(handleCustomerDetails())
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <LabelWrapper>
-        Name
-   <input type="text" name="name" defaultValue={customerDetails.name} ref={register} />
-        {errors.name && <p>This is required</p>}
-      </LabelWrapper>
+    <EditForm
+      width="700px"
+      background={props => props.theme.mintGreen}
+      onSubmit={handleSubmit(onSubmit)}>
+      <EditFormColumn>
+
+        <LabelWrapper>
+          Name
+   <InputFields height="30px" type="text" name="name" defaultValue={customerDetails.name} ref={register} />
+          {errors.name && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
 
 
-      <LabelWrapper>
-        Organisation Number
-   <input type="text" name="organisationNr" defaultValue={customerDetails.organisationNr} ref={register} />
-        {errors.organisationNr && <p>This is required</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          Organisation Number
+   <InputFields height="30px" type="text" name="organisationNr" defaultValue={customerDetails.organisationNr} ref={register} />
+          {errors.organisationNr && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
 
-      <LabelWrapper>
-        VAT-number
-   <input type="text" name="vatNr" defaultValue={customerDetails.vatNr} ref={register}
-        />
-        {errors.vatNr && <p>This field is required and should be like SE9940003332</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          VAT-number
+   <InputFields height="30px" type="text" name="vatNr" defaultValue={customerDetails.vatNr} ref={register}
+          />
+          {errors.vatNr && <ErrorMessage>This field is required and should be like SE9940003332</ErrorMessage>}
+        </LabelWrapper>
 
-      <LabelWrapper>
-        Reference
-   <input type="text" name="reference" defaultValue={customerDetails.reference} ref={register} />
-        {errors.reference && <p>This is required</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          Reference
+   <InputFields height="30px" type="text" name="reference" defaultValue={customerDetails.reference} ref={register} />
+          {errors.reference && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
+      </EditFormColumn>
+      <EditFormColumn>
 
-      <LabelWrapper>
-        Payment Term
-   <input type="text" name="paymentTerm" defaultValue={customerDetails.paymentTerm} ref={register} />
-        {errors.paymentTerm && <p>This is required</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          Payment Term
+   <InputFields height="30px" type="text" name="paymentTerm" defaultValue={customerDetails.paymentTerm} ref={register} />
+          {errors.paymentTerm && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
 
-      <LabelWrapper>
-        Website
-   <input type="text" name="website" defaultValue={customerDetails.website} ref={register} />
-        {errors.website && <p>This is required</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          Website
+   <InputFields height="30px" type="text" name="website" defaultValue={customerDetails.website} ref={register} />
+          {errors.website && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
 
-      <LabelWrapper>
-        Email
-   <input type="text" name="email" defaultValue={customerDetails.email} ref={register} />
-        {errors.email && <p>This is required</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          Email
+   <InputFields height="30px" type="text" name="email" defaultValue={customerDetails.email} ref={register} />
+          {errors.email && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
 
-      <LabelWrapper>
-        Phone number
-   <input type="text" name="phoneNumber" defaultValue={customerDetails.phoneNumber} ref={register} />
-        {errors.phoneNumber && <p>This is required</p>}
-      </LabelWrapper>
+        <LabelWrapper>
+          Phone number
+   <InputFields height="30px" type="text" name="phoneNumber" defaultValue={customerDetails.phoneNumber} ref={register} />
+          {errors.phoneNumber && <ErrorMessage>This is required</ErrorMessage>}
+        </LabelWrapper>
+      </EditFormColumn>
 
-      <button type="submit">Save customer</button>
-    </form>
+      <SubmitButton
+        fontSize="medium"
+        background={props => props.theme.riptide}
+        textColor="white"
+        width="100%"
+        type="submit">Save customer</SubmitButton>
+    </EditForm>
   )
 }
 
 const LabelWrapper = styled.label`
 display: flex;
+font-weight: bold;
 flex-direction: column;
+`
+
+const EditForm = styled(Form)`
+display: grid;
+grid-template: 1fr auto / 1fr 1fr;
+gap: 1em;
+
+@media (max-width: 400px){
+  grid-template: 1fr 1fr auto / 1fr;
+}
+`
+
+const SubmitButton = styled(Button)`
+grid-column: span 2;
+
+@media (max-width: 400px){
+  grid-column: unset;
+}
+`
+
+const EditFormColumn = styled.div`
+display: grid;
+gap: 1em;
 `
