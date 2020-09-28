@@ -10,6 +10,7 @@ export default function ButtonLogin() {
       fontSize="medium"
       background={props => props.theme.purpleTaupe}
       textColor={props => props.theme.whisper}
+      width="100%"
       onClick={() => { history.push("/login") }}>Sign in</Button>
   )
 }

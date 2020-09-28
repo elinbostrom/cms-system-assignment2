@@ -9,6 +9,7 @@ import PlaceMainContent from '../styles/PlaceMainContent'
 import InputFields from '../styles/InputFields'
 import Form from '../styles/Form'
 import Button from '../styles/Button'
+import ButtonRegister from './ButtonRegister'
 
 const schema = yup.object().shape({
   email: yup.string().email().required('Please fill in email'),
@@ -70,6 +71,11 @@ export default function FormLogin() {
           margin="1em 0"
           type="submit">Login</Button>
       </Form>
+      <InfoText>Do you not have an account?</InfoText>
+      <ButtonRegister
+        signUpText="Create account"
+        width="300px"
+        background={props => props.theme.riptide} />
     </PlaceMainContent>
   )
 }
@@ -78,4 +84,9 @@ const LabelWrapper = styled.label`
 display: flex;
 flex-direction: column;
 margin: 1em 0;
+`
+
+const InfoText = styled.p`
+font-style: italic;
+margin: 1em;
 `

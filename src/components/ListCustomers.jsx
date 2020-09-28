@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import UserKit from '../data/UserKit'
 import { CustomerContext } from '../context/CustomerContext'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from '../styles/Button'
 
 export default function ListCustomers() {
   const userKit = new UserKit()
@@ -21,15 +23,15 @@ export default function ListCustomers() {
   }, [])
 
   return (
-    <table>
-      <thead>
+    <Table>
+      <Thead>
         <tr>
           <th>Customer name</th>
           <th>Organisation Number</th>
           <th>Reference</th>
           <th>Read more</th>
         </tr>
-      </thead>
+      </Thead>
       <tbody>
         {customerList && customerList.map(customerItem => {
           return (
@@ -37,11 +39,32 @@ export default function ListCustomers() {
               <td>{customerItem.name}</td>
               <td>{customerItem.organisationNr}</td>
               <td>{customerItem.reference}</td>
-              <td><Link to={`/customers/${customerItem.id}`}>Click</Link></td>
+              <td>
+                <Link to={`/customers/${customerItem.id}`}>
+                  <Button
+                    fontSize="small"
+                    background={props => props.theme.riptide}
+                    width="100%"
+                    textColor="palegreen">
+                    👩🏼‍💻 📖
+                </Button>
+                </Link></td>
             </tr>
           )
         })}
       </tbody>
-    </table>
+    </Table>
   )
 }
+
+
+const Table = styled.table`
+padding: 2em 3em; 
+background: white;
+box-shadow: 1px 1px 3px gray;
+border-radius: 5px;
+`
+
+const Thead = styled.thead`
+text-align: left;
+`
