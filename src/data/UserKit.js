@@ -36,11 +36,11 @@ export default class {
     })
   }
 
-  async login(email, password) {
+  async login(data) {
     const url = `${ROOT_URL}api-token-auth/`
     const payload = {
-      email,
-      password
+      email: data.email,
+      password: data.password
     }
 
     return fetch(url, {
