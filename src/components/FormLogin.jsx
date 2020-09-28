@@ -5,6 +5,10 @@ import styled from 'styled-components'
 import UserKit from '../data/UserKit'
 import { yupResolver } from '@hookform/resolvers'
 import * as yup from 'yup'
+import PlaceMainContent from '../styles/PlaceMainContent'
+import InputFields from '../styles/InputFields'
+import Form from '../styles/Form'
+import Button from '../styles/Button'
 
 const schema = yup.object().shape({
   email: yup.string().email().required('Please fill in email'),
@@ -40,26 +44,38 @@ export default function FormLogin() {
   }
 
   return (
-    <div>
+    <PlaceMainContent
+      background={props => props.theme.paleRose}
+      flexDirection="column">
       <h1>Login</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        width="500px"
+        background="white"
+        onSubmit={handleSubmit(onSubmit)}>
         <LabelWrapper>
           Email
-        <input type="email" name="email" ref={register} />
+        <InputFields height="30px" type="email" name="email" ref={register} />
           <p>{errors.email?.message}</p>
         </LabelWrapper>
         <LabelWrapper>
           Password
-        <input type="password" name="password" ref={register} />
+        <InputFields height="30px" type="password" name="password" ref={register} />
           <p>{errors.password?.message}</p>
         </LabelWrapper>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+        <Button
+          fontSize="medium"
+          background={props => props.theme.purpleTaupe}
+          textColor={props => props.theme.paleRose}
+          width="100%"
+          margin="1em 0"
+          type="submit">Login</Button>
+      </Form>
+    </PlaceMainContent>
   )
 }
 
 const LabelWrapper = styled.label`
 display: flex;
 flex-direction: column;
+margin: 1em 0;
 `
