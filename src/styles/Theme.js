@@ -1,0 +1,8 @@
+export const purpleTaupe = "#5B4459"
+export const paleRose = "#EDC7D9"
+export const whisper = "#F9F7F8"
+export const riptide = "#95E1D4"
+export const charcoal = "#444444"
+export const nero = "#212121"
+export const gradientLinearSignedOut = "linear-gradient(184deg, rgba(33,33,33,1) 0%, rgba(51,51,51,0.726883193193856) 100%)"
+export const gradientLinearSignedin = "linear-gradient(184deg, rgba(149,225,212,1) 0%, rgba(149,225,212,0.611063984154308) 100%)"

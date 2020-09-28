@@ -27,8 +27,7 @@ export default function FormCreateCustomer() {
 
   const onSubmit = (data) => {
     userKit.createCustomer(data)
-      .then(
-        userKit.fetchCustomers())
+      .then(userKit.fetchCustomers())
     history.push("/home")
   }
 
