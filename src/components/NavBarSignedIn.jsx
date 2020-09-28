@@ -6,6 +6,7 @@ import UserKit from '../data/UserKit'
 import NavBar from '../styles/NavBar'
 import LogoBlack from '../media/logo-black.png'
 import ImageWrapper from '../styles/ImageWrapper'
+import Button from '../styles/Button'
 
 export default function NavBarSignedIn() {
   let { activeUser, setActiveUser } = useContext(UserContext)
@@ -39,12 +40,28 @@ export default function NavBarSignedIn() {
           <Link to="/home">Customers</Link>
         </ListItemLink>
         <ListItemLink>
-          <button onClick={handleSignOut}>Sign out</button>
+          <Button
+            fontSize="small"
+            background={props => props.theme.nero}
+            textColor="white"
+            onClick={handleSignOut}>Sign out</Button>
         </ListItemLink>
         {activeUser.firstName && activeUser.lastName && <ListItemLink>
-          <p>Signed in as</p>
-          <p>{`${activeUser.firstName} ${activeUser.lastName}`}</p>
-          <p>{activeUser.email}</p>
+          <ActiveUserInfo
+            fontSize="12px"
+            fontWeight="thin"
+          >Signed in as
+          </ActiveUserInfo>
+          <ActiveUserInfo
+            fontSize="14px"
+            fontWeight="bold"
+          >{`${activeUser.firstName} ${activeUser.lastName}`}
+          </ActiveUserInfo>
+          <ActiveUserInfo
+            fontSize="12px"
+            fontWeight="thin"
+          >{activeUser.email}
+          </ActiveUserInfo>
         </ListItemLink>}
       </NavList>
     </NavBar>
@@ -55,6 +72,7 @@ export default function NavBarSignedIn() {
 const NavList = styled.ul`
 list-style: none;
 display: flex;
+align-items: center;
 `
 
 const ListItemLink = styled.li`
@@ -64,7 +82,7 @@ a {
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
-  color: ${props => props.theme.charcoal};
+  color: ${props => props.theme.nero};
   transition: all 200ms;
 
   &:hover {
@@ -73,4 +91,11 @@ a {
     text-shadow: 1px 1px 2px black;
   }
 }
+`
+
+const ActiveUserInfo = styled.p`
+font-weight: ${props => props.fontWeight};
+font-size: ${props => props.fontSize};
+text-align: center;
+color: ${props => props.theme.nero}
 `
