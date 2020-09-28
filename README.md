@@ -75,7 +75,7 @@ vi ett anrop till /api-token-auth/ med email och password. Då får vi tillbaka 
 token
 
 
-# Hemskärmen
+# Hemskärmen - CHECK
 När användaren har loggat in navigerar vi vidare till /home - CHECK
 Lista alla kunder som användaren har kopplat till sitt konto ( GET
 /api/v1/customers/) - CHECK
@@ -97,11 +97,11 @@ När användaren har skapat kunden ska kundlistan laddas om från
 back-end
 
 
-# Visa vilken användare som är inloggad ( api/v1/me )
+# Visa vilken användare som är inloggad ( api/v1/me ) - CHECK
 Visa den inloggade användarens email, förnamn och efternamn.
 
 
-# Detaljvy för en specifik kund 
+# Detaljvy för en specifik kund  - CHECK
 Inlämingsuppgift 2 4
 Visa följande information på Detaljvy för en specifik kund
 name,
@@ -117,7 +117,7 @@ VG: Lägg till en knapp så att användaren kan ta bort en kund HTTP
 Method Delete på /api/v1/customers/{id}/ ). Användaren ska därefter
 navigera tillbaka till "Hemskärmen" - CHECK
 
-VG: Ge användaren möjlighet att ändra kundens information PUT/PATCH
+VG: Ge användaren möjlighet att ändra kundens information PUT/PATCH - CHECK
 
 
 # Inlämning
