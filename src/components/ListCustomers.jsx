@@ -46,8 +46,8 @@ export default function ListCustomers() {
                     background={props => props.theme.riptide}
                     width="100%"
                     textColor="palegreen">
-                    👩🏼‍💻 📖
-                </Button>
+                    <span>👩🏼‍💻 📖</span>
+                  </Button>
                 </Link></td>
             </tr>
           )

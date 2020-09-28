@@ -19,6 +19,7 @@ export default function HomePage() {
     >
       <Headline
         margin="1em"
+        textColor={props => props.theme.nero}
       >Welcome {activeUser.firstName}</Headline>
       <Container
         width="700px"
