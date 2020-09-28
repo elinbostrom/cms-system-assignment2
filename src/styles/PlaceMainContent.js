@@ -8,6 +8,10 @@ flex-direction: ${props => props.flexDirection};
 width: 100vw;
 justify-content: center;
 align-items: center;
+
+@media (max-width: 400px){
+  padding-top: 200px;
+}
 `;
 
 export default PlaceMainContent;

@@ -29,10 +29,18 @@ export default function NavBarSignedOut() {
 const NavList = styled.ul`
 list-style: none;
 display: flex;
+
+@media (max-width: 400px){
+  padding: 0;
+}
 `
 
 const ListItemLink = styled.li`
 margin: 0 1em;
+
+@media (max-width: 400px){
+  padding-top: 1em;
+}
 
 a {
   font-size: 14px;

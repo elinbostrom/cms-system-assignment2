@@ -63,8 +63,18 @@ padding: 2em 3em;
 background: white;
 box-shadow: 1px 1px 3px gray;
 border-radius: 5px;
+
+@media (max-width: 400px){
+  font-size: 12px;
+}
 `
 
 const Thead = styled.thead`
 text-align: left;
 `
+
+// const TableData = styled.td`
+// @media (max-width: 400px){
+//   font-size: 12px;
+// }
+// `

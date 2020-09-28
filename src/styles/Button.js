@@ -3,6 +3,8 @@ import styled from 'styled-components'
 const Button = styled.button`
 font-size: ${props => {
     switch (props.fontSize) {
+      case "extraSmall":
+        return "9px";
       case "small":
         return "12px";
       case "medium":
@@ -30,6 +32,10 @@ font-size: ${props => {
     background: ${props => props.theme.nero};
     color: white;
     cursor: pointer;
+  }
+
+  @media(max-width: 400px){
+    font-size: 9px;
   }
 `
 

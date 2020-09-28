@@ -17,20 +17,25 @@ export default function StartPage() {
 
         <ContentWrapper>
           <HeroTitle>Startpage</HeroTitle>
-          <ButtonRegister signUpText="Create account" />
+          <ButtonRegister
+            signUpText="Create account"
+            width="100%"
+            background={props => props.theme.paleRose} />
+
           <ButtonLogin />
         </ContentWrapper>
+
+        <ContainerInformation
+          title="Get a overview of your customers"
+          informationText="Get a clear overview of all your customers. You can edit and manage them i our magical CRM system."
+          sourceUrl="/"
+          altText="Overview of system" />
+        <ContainerInformation
+          title="Edit and manage customers"
+          informationText="See specific details about a customer. Edit information and delete from system if neccesary."
+          sourceUrl="/"
+          altText="Overview of specific detailpage" />
       </Hero>
-      <ContainerInformation
-        title="Get a overview of your customers"
-        informationText="Get a clear overview of all your customers. You can edit and manage them i our magical CRM system."
-        sourceUrl="/"
-        altText="Overview of system" />
-      <ContainerInformation
-        title="Edit and manage customers"
-        informationText="See specific details about a customer. Edit information and delete from system if neccesary."
-        sourceUrl="/"
-        altText="Overview of specific detailpage" />
     </div>
   )
 }
@@ -40,12 +45,18 @@ const Hero = styled.header`
 background: url(${HeroPicture});
 background-size: cover;
 background-position: center;
+background-attachment: fixed;
 width: 100vw;
-min-height: 400px;
+min-height: 100vh;
 padding: 2em;
-display: flex;
+display: grid;
+grid-template: 1fr 1fr 1fr / 1fr;
 justify-content: center;
 align-items: center;
+
+@media (max-width: 400px){
+  padding: 150px 2em 0 2em;
+}
 `
 
 const ContentWrapper = styled.div`
@@ -54,6 +65,7 @@ grid-template: 1fr 0.5fr / 1fr 1fr;
 gap: 1em;
 justify-content: center;
 max-width: 500px;
+margin: auto;
 width: 100%;
 `
 

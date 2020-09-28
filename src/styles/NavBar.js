@@ -12,6 +12,11 @@ box-shadow: 1px 1px 2px gray;
 justify-content: space-between;
 align-items: center;
 z-index: 10;
+
+@media (max-width: 400px){
+  flex-direction: column;
+  justify-content: center;
+}
 `
 
 export default NavBar;
