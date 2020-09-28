@@ -27,8 +27,8 @@ font-size: ${props => {
   margin: ${props => props.margin ? props.margin : '0'};
 
   &:hover {
-    color: ${props => props.background};
-    background: ${props => props.textColor};
+    background: ${props => props.theme.nero};
+    color: white;
     cursor: pointer;
   }
 `
