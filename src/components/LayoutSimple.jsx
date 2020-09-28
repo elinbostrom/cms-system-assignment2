@@ -25,6 +25,7 @@ export default function LayoutSimple({ children }) {
 
 const Footer = styled.footer`
 position: fixed;
+z-index: 10;
 bottom: 0;
 width: 100vw;
 background: ${props => props.theme.nero};

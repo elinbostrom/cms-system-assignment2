@@ -45,13 +45,14 @@ export default function ListCustomers() {
                     fontSize="small"
                     background={props => props.theme.riptide}
                     width="100%"
-                    textColor="palegreen">
-                    <span>👩🏼‍💻 📖</span>
+                    textColor="white">
+                    Click
                   </Button>
                 </Link></td>
             </tr>
           )
-        })}
+        })
+        }
       </tbody>
     </Table>
   )
@@ -72,9 +73,3 @@ border-radius: 5px;
 const Thead = styled.thead`
 text-align: left;
 `
-
-// const TableData = styled.td`
-// @media (max-width: 400px){
-//   font-size: 12px;
-// }
-// `

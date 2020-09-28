@@ -46,12 +46,12 @@ export default function FormLogin() {
 
   return (
     <PlaceMainContent
-      background={props => props.theme.paleRose}
+      background={props => props.theme.whisper}
       flexDirection="column">
       <h1>Login</h1>
       <Form
         width="500px"
-        background="white"
+        background={props => props.theme.mintGreen}
         onSubmit={handleSubmit(onSubmit)}>
         <LabelWrapper>
           Email

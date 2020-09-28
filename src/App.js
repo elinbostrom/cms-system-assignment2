@@ -15,6 +15,7 @@ import StartPage from './pages/StartPage';
 import HomePage from './pages/HomePage';
 import CreateCustomerPage from './pages/CreateCustomerPage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
+import ActivateMessagePage from './pages/ActivateMessagePage';
 
 function App() {
   const [activeUser, setActiveUser] = useState("")
@@ -32,7 +33,7 @@ function App() {
           customerList,
           setCustomerList,
           customerDetails,
-          setCustomerDetails
+          setCustomerDetails,
         }}>
 
         <UserContext.Provider
@@ -60,6 +61,10 @@ function App() {
 
               <Route path="/login">
                 <LoginPage />
+              </Route>
+
+              <Route path="/activate">
+                <ActivateMessagePage />
               </Route>
 
               <Route path="/register">

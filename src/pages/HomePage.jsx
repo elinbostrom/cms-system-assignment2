@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import ListCustomers from '../components/ListCustomers'
 import { UserContext } from '../context/UserContext'
@@ -7,10 +7,16 @@ import Container from '../styles/Container'
 import Button from '../styles/Button'
 import styled from 'styled-components'
 import Headline from '../styles/Headline'
+import UserKit from '../data/UserKit'
 
 export default function HomePage() {
   const { activeUser } = useContext(UserContext)
   const history = useHistory()
+  const userKit = new UserKit()
+
+  useEffect(() => {
+    userKit.fetchCustomers() // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <PlaceMainContent

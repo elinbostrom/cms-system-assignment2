@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react'
 import UserKit from '../data/UserKit'
-import styled from 'styled-components';
 import { CustomerContext } from '../context/CustomerContext';
 import FormEditCustomer from '../components/FormEditCustomer';
 import CustomerDetailInformation from '../components/CustomerDetailInformation';
+import PlaceMainContent from '../styles/PlaceMainContent';
+import Headline from '../styles/Headline';
 
 
 export default function CustomerDetailPage(props) {
-  const { setCustomerDetails } = useContext(CustomerContext)
+  const { customerDetails, setCustomerDetails } = useContext(CustomerContext)
   const userKit = new UserKit()
   const customerId = props.match.params.id;
   const [editMode, setEditMode] = useState(false)
@@ -26,7 +27,14 @@ export default function CustomerDetailPage(props) {
   }, [])
 
   return (
-    <div>
+    <PlaceMainContent
+      background={props => props.theme.whisper}
+      flexDirection="column"
+    >
+      <Headline
+        textColor={props => props.theme.nero}
+        margin="1em"
+      >{customerDetails.name}</Headline>
       {!editMode ?
         (
           <CustomerDetailInformation
@@ -41,6 +49,6 @@ export default function CustomerDetailPage(props) {
             customerId={customerId} />
         )
       }
-    </div>
+    </PlaceMainContent>
   )
 }

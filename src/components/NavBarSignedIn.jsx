@@ -73,10 +73,19 @@ const NavList = styled.ul`
 list-style: none;
 display: flex;
 align-items: center;
+
+@media (max-width: 400px){
+flex-direction: column;
+padding: 0;
+}
 `
 
 const ListItemLink = styled.li`
 margin: 0 1em;
+
+@media (max-width: 400px){
+  margin: 0.5em 0 0 0;
+}
 
 a {
   font-size: 14px;
@@ -90,6 +99,7 @@ a {
     color: ${props => props.theme.paleRose};
     text-shadow: 1px 1px 2px black;
   }
+
 }
 `
 
@@ -97,5 +107,9 @@ const ActiveUserInfo = styled.p`
 font-weight: ${props => props.fontWeight};
 font-size: ${props => props.fontSize};
 text-align: center;
-color: ${props => props.theme.nero}
+color: ${props => props.theme.nero};
+
+@media (max-width: 400px){
+  display: none;
+}
 `

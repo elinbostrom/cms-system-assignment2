@@ -5,6 +5,10 @@ import UserKit from '../data/UserKit'
 import { yupResolver } from '@hookform/resolvers'
 import * as yup from 'yup'
 import styled from 'styled-components'
+import Form from '../styles/Form'
+import Button from '../styles/Button'
+import InputFields from '../styles/InputFields'
+import ErrorMessage from '../styles/ErrorMessage'
 
 
 const schema = yup.object().shape({
@@ -15,7 +19,7 @@ const schema = yup.object().shape({
   paymentTerm: yup.number().positive().integer().required(),
   website: yup.string().url().required(),
   email: yup.string().email().required(),
-  phoneNumber: yup.number().integer().required(),
+  phoneNumber: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/).required(),
 })
 
 export default function FormCreateCustomer() {
@@ -28,64 +32,73 @@ export default function FormCreateCustomer() {
   const onSubmit = (data) => {
     userKit.createCustomer(data)
       .then(userKit.fetchCustomers())
-    history.push("/home")
+      .then(history.push("/home"))
   }
 
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      width="700px"
+      background={props => props.theme.mintGreen}
+      onSubmit={handleSubmit(onSubmit)}>
       <LabelWrapper>
-        Name
-          <input type="text" name="name" ref={register} />
-        {errors.name && <p>This is required</p>}
+        Company Name
+          <InputFields height="30px" type="text" name="name" ref={register} />
+        {errors.name && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
 
       <LabelWrapper>
         Organisation Number
-          <input type="text" name="organisationNr" ref={register} />
-        {errors.organisationNr && <p>This is required</p>}
+          <InputFields height="30px" type="text" name="organisationNr" ref={register} />
+        {errors.organisationNr && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
         VAT-number
-          <input type="text" name="vatNr" ref={register}
+          <InputFields height="30px" type="text" name="vatNr" ref={register}
         />
-        {errors.vatNr && <p>This field is required and should be like SE9940003332</p>}
+        {errors.vatNr && <ErrorMessage>This field is required and should be like SE9940003332</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
         Reference
-          <input type="text" name="reference" ref={register} />
-        {errors.reference && <p>This is required</p>}
+          <InputFields height="30px" type="text" name="reference" ref={register} />
+        {errors.reference && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
-        Payment Term
-          <input type="text" name="paymentTerm" ref={register} />
-        {errors.paymentTerm && <p>This is required</p>}
+        Payment Term (Days)
+          <InputFields height="30px" type="text" name="paymentTerm" ref={register} />
+        {errors.paymentTerm && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
         Website
-          <input type="text" name="website" ref={register} />
-        {errors.website && <p>This is required</p>}
+          <InputFields height="30px" type="text" name="website" ref={register} />
+        {errors.website && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
         Email
-          <input type="text" name="email" ref={register} />
-        {errors.email && <p>This is required</p>}
+          <InputFields height="30px" type="text" name="email" ref={register} />
+        {errors.email && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
       <LabelWrapper>
         Phone number
-          <input type="text" name="phoneNumber" ref={register} />
-        {errors.phoneNumber && <p>This is required</p>}
+          <InputFields height="30px" type="text" name="phoneNumber" ref={register} />
+        {errors.phoneNumber && <ErrorMessage>This is required</ErrorMessage>}
       </LabelWrapper>
 
-      <button type="submit">Create customer</button>
-    </form>
+      <Button
+        fontSize="medium"
+        background={props => props.theme.riptide}
+        textColor="white"
+        width="100%"
+        margin="1em 0"
+        type="submit">Create customer</Button>
+    </Form>
   )
 }
 
@@ -93,4 +106,6 @@ export default function FormCreateCustomer() {
 const LabelWrapper = styled.label`
 display: flex;
 flex-direction: column;
+font-weight: bold;
+margin: 1em;
 `

@@ -11,9 +11,11 @@ export default function NavBarSignedOut() {
   return (
     <NavBar background={props => props.theme.nero}
       gradientLinear={props => props.theme.gradientLinearSignedOut}>
-      <ImageWrapper width="100px" height="40px">
-        <img src={LogoWhite} alt="logotype" />
-      </ImageWrapper>
+      <Link to="/">
+        <ImageWrapper width="100px" height="40px">
+          <img src={LogoWhite} alt="logotype" />
+        </ImageWrapper>
+      </Link>
       <NavList>
         <ListItemLink>
           <Link to="/register">Sign up</Link>

@@ -1,10 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
+import { useHistory } from "react-router-dom";
 import * as yup from 'yup'
 import styled from "styled-components";
 import UserKit from '../data/UserKit'
-import { useHistory } from "react-router-dom";
+
+// Styles
+import Form from "../styles/Form";
+import InputFields from "../styles/InputFields";
+import Button from "../styles/Button";
+import ErrorMessage from '../styles/ErrorMessage'
 
 const schema = yup.object().shape({
   firstName: yup.string().required('Firstname is required'),
@@ -25,59 +31,78 @@ export default function FormCreateUser() {
 
   const onSubmit = (data) => {
     userKit.register(data)
-    history.push("/login")
+    history.push("/activate")
   }
 
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      width="700px"
+      background={props => props.theme.mintGreen}
+      onSubmit={handleSubmit(onSubmit)}>
       <LabelWrapper>
         Firstname
-      <input type="text" name="firstName" ref={register} />
-        <p>{errors.firstName?.message}</p>
+      <InputFields height="30px" type="text" name="firstName" ref={register} />
+        <ErrorMessage>{errors.firstName?.message}</ErrorMessage>
       </LabelWrapper>
 
       <LabelWrapper>
         Lastname
-      <input type="text" name="lastName" ref={register} />
-        <p>{errors.lastName?.message}</p>
+      <InputFields height="30px" type="text" name="lastName" ref={register} />
+        <ErrorMessage>{errors.lastName?.message}</ErrorMessage>
       </LabelWrapper>
 
       <LabelWrapper>
         Email
-      <input type="text" name="email" ref={register} />
-        <p>{errors.email?.message}</p>
+      <InputFields height="30px" type="text" name="email" ref={register} />
+        <ErrorMessage>{errors.email?.message}</ErrorMessage>
       </LabelWrapper>
 
       <LabelWrapper>
         Password
-      <input type="password" name="password" ref={register} />
-        <p>{errors.password?.message}</p>
+      <InputFields height="30px" type="password" name="password" ref={register} />
+        <ErrorMessage>{errors.password?.message}</ErrorMessage>
       </LabelWrapper>
 
       <LabelWrapper>
         Organisation Name
-      <input type="text" name="organisationName" ref={register} />
-        <p>{errors.organisationName?.message}</p>
+      <InputFields height="30px" type="text" name="organisationName" ref={register} />
+        <ErrorMessage>{errors.organisationName?.message}</ErrorMessage>
       </LabelWrapper>
 
       <LabelWrapper>
         Organisation Kind
-      <select name="organisationKind" ref={register}>
+      <Select height="30px" name="organisationKind" ref={register}>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
-        </select>
-        <p>{errors.organisationKind?.message}</p>
+        </Select>
+        <ErrorMessage>{errors.organisationKind?.message}</ErrorMessage>
       </LabelWrapper>
 
-      <button type="submit">Register</button>
-    </form>
+      <Button
+        fontSize="medium"
+        background={props => props.theme.riptide}
+        textColor="white"
+        width="100%"
+        margin="1em 0"
+        type="submit">Register</Button>
+    </Form>
   );
 }
 
 
 const LabelWrapper = styled.label`
 display: flex;
-flex-direction: column
+flex-direction: column;
+font-weight: bold;
+margin: 0.5em 0;
 `;
+
+const Select = styled.select`
+border: none;
+border-radius: 3px;
+box-shadow: 1px 1px 2px gray;
+padding: 0.5em;
+height: ${props => props.height}
+`
