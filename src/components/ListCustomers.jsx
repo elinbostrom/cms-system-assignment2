@@ -14,11 +14,11 @@ export default function ListCustomers() {
       .then(res => res.json())
       .then(data => {
         setCustomerList(data.results)
+        fetchCustomerList()
       })
   }
 
   useEffect(() => {
-    userKit.fetchCustomers()
     fetchCustomerList() // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
