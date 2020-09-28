@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import GlobalStyles from './styles/GlobalStyles'
+import { UserContext } from './context/UserContext';
+import { CustomerContext } from './context/CustomerContext';
 
-// * Pages
+// Components
+import LayoutSimple from './components/LayoutSimple';
+
+
+// Pages
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import StartPage from './pages/StartPage';
 import HomePage from './pages/HomePage';
 import CreateCustomerPage from './pages/CreateCustomerPage';
-import LayoutSimple from './components/LayoutSimple';
-import { UserContext } from './context/UserContext';
-import { CustomerContext } from './context/CustomerContext';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 
 function App() {
-  const [activeUser, setActiveUser] = useState("Hej")
+  const [activeUser, setActiveUser] = useState("")
   const [customerInfo, setCustomerInfo] = useState({})
   const [customerList, setCustomerList] = useState([])
   const [customerDetails, setCustomerDetails] = useState({})
 
-  // setActiveUser('Hejdå')
-
   return (
     <div>
+      <GlobalStyles />
       <CustomerContext.Provider
         value={{
           customerInfo,
