@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/crm-system-assignment2/static/js/main.94b3e197.chunk.js",
+    "main.js.map": "/crm-system-assignment2/static/js/main.94b3e197.chunk.js.map",
+    "runtime-main.js": "/crm-system-assignment2/static/js/runtime-main.8bea7cf1.js",
+    "runtime-main.js.map": "/crm-system-assignment2/static/js/runtime-main.8bea7cf1.js.map",
+    "static/js/2.51979601.chunk.js": "/crm-system-assignment2/static/js/2.51979601.chunk.js",
+    "static/js/2.51979601.chunk.js.map": "/crm-system-assignment2/static/js/2.51979601.chunk.js.map",
+    "index.html": "/crm-system-assignment2/index.html",
+    "precache-manifest.87ba89f28700956704bd161d9a5c6a9c.js": "/crm-system-assignment2/precache-manifest.87ba89f28700956704bd161d9a5c6a9c.js",
+    "service-worker.js": "/crm-system-assignment2/service-worker.js",
+    "static/js/2.51979601.chunk.js.LICENSE.txt": "/crm-system-assignment2/static/js/2.51979601.chunk.js.LICENSE.txt",
+    "static/media/background-startpage.jpg": "/crm-system-assignment2/static/media/background-startpage.1f7b1be1.jpg",
+    "static/media/customer-list.png": "/crm-system-assignment2/static/media/customer-list.562250f9.png",
+    "static/media/edit-customer.png": "/crm-system-assignment2/static/media/edit-customer.797488f9.png",
+    "static/media/logo-black.png": "/crm-system-assignment2/static/media/logo-black.f67ae184.png",
+    "static/media/logo-white.png": "/crm-system-assignment2/static/media/logo-white.6b2bc125.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8bea7cf1.js",
+    "static/js/2.51979601.chunk.js",
+    "static/js/main.94b3e197.chunk.js"
+  ]
+}
